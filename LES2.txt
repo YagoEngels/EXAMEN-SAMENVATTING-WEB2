@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WEB 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+__________________________________________________________________________________________________________________
+
+--2 :: hoodstuk 2 === Servlet en JSP
+
+	- 2.1 :: HTTP server vs Web container
+
+Als men een website zou willen maken die bijvoorbeeld het gooien van een dobbelsteen simuleert dan is een statische html pagina niet meer mogelijk en moet dit dynamisch gegenereed worden op het moment dat de html pagina opgevraagd word.
+
+Dus het gaat als volgt:
+
+	1)	Ontwikelaar schrijft html en java
+	2)	Klant vraagt webpagina
+	3)	Web container vraagt aan de java klasse om html te generen 
+	4)	De java klasse genereert html
+	5) 	Html wordt teruggegeven aan de browser
+	6)	Browser verwerkt de html en toont de pagina 
+
+Een web container kan alles wat een http server kan:
+
+	http server 	:	- antwoord op http requests 
+				- kan html paginas terruggeven 
+				- bv apache
+
+	web container	:	- antwoord op http requests 
+				- kan html paginas teruggeven 
+				- kan java verwerken via servlets 
+			 	- bv tomcat
+
+De klasse die html gnereert wordt servlets genoemd, een servlet is een gewone klass maar wordt door de web container herkend en beheerd.
+
+	- 2.2 :: Servlet schrijven
+
+ - Om te beginnen schrijft de ontwikkelaar een java servlet.
+En boven aan de webserver schrijft ge dit @WebServlet("/Dice") bijvoorbeeld en zo kan je die oproepen in een url.
+De servlet word extend door de klasse HttpServlet en deze bevatten een aantal methodes:
+
+	-	init	(ServletConfig)
+	-	service	(HttpServletRequest,HttpServletResponse)
+	-	doGet	(HttpServletRequest,HttpServletResponse)
+	-	doPost	(HttpServletRequest,HttpServletResponse)
+	-	destroy	()
+
+De methodes doget en dopost krijgt ge leeg mee maar moet je nog zelf schrijven.
+PrintWriter is een manier om je html code te schrijven in de servlet, dit is echter geen goede manier om een dynamische website te maken.
+
+ - De volgende 4 stappen word gedaan door de web container.
+
+	- 2.3 :: Request handling
+
+Als er op een link word geklikt naar een servelt gebeurt dit:
+
+	1)	De webcontainer heeft bij het opstarten ervan een servlet object gemaakt van de servelt door de default constructor van de server klasse op te roepen, en heeft de init () methode hierop al opgeroepen en heeft de init methode hierop al opgeroepen dus met andere woorden de client stuurt een http request naar de webcontainer die de servelt object heeft gemaakt.
+	2)	De container ziet det het een request voor een servelt is en maakt een httpServletResponse ne een HttpServletRequest aan.
+	3)	De container vindt de servlet op de basis van de url in de request en maakt een nieuw thread voor dit request en geeft het request en response object mee aan de servlet thread.
+	4)	De container roept de service() methode van de servlet op in de service methode wordt de doget methode opgeroepen.
+	5)	De doget methode generereert de dynamische pagina en schrijft deze weg naar het response obhect.
+	6)	De thread word afgesloten, de container zet het response object om naar een http respons en stuurt het terug naar de client en verwijdert het request en response object, wanneer de web container geshut down wordt dan pas wordt de destroy methode opgeroepen en zullen de instanties van de servlet verwijderd worden.
+
+
+Als er 2 clients een request doen krijgen ze allebij een andere thread die gemaakt is door de webcontainer, per request krijgt men een nieuwe thread.
+
+	- 3.4 :: JSP
+
+Zoals eerder al was gezegd is JSP een betere manier om aan java te doen in html files, jsp staat voor java server pages en het is eigenlijk een html pagina die jsp scriplets bevat en dit zijn stukjes java codes.
+
+	- 3.5 :: Foutopsporing  
+	

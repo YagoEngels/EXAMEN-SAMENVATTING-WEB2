@@ -1,0 +1,17 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WEB 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+__________________________________________________________________________________________________________________
+
+
+--8 :: hoodstuk 8 === Cookies
+
+
+Cookies are made by a script on the server and saved by the client in its browser, de server maakt een cookie en geeft deze aan de client in de response header, de browser stuurt de cookie in elk response header.
+Dit zijn de stappen daarvoor.
+
+	- Stap 1 : 
+
+De server maakt een cookie en geeft het aan de client in de response header via de addcookie methode.
+
+	- Stap 2 :
+
+De browser stuurt de cookie in elke request header, de server leest de cookie dan met de getCookies methode.

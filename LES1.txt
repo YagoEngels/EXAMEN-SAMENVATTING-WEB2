@@ -1,0 +1,49 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WEB 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+__________________________________________________________________________________________________________________
+
+--1 :: hoodstuk 1 === Client server
+
+	- 1.1 :: client-server model
+
+Om een statische website pagina te draaien in de browser moet je gewoon in je browser het path openen van dat html bestand , via het file protocol.
+Je kan ook een statische webpagina draaien doordat het bestand op een vast plaatst staat in hetzelfde netwerk en dan gebruik je via file protocol eerst de host in de url en dan het path.
+Een nog andere manier is via het http protocol dan heeft het bestand nog altijd een vaste plaats maar om u zich in het zelfde netwerk te bevinden is redelijk moeilijk tot onmogelijk dus word het via een http server online gezet.
+
+De definitie van het client server model gaat als volgt:
+Het client server model beschrijft de relatie tussen twee computerporgrmammas in een proces, deze relatie is assymetrisch. De client verstuurt een service verzoek aan een ander programma, de server. De server verwerkt het verzoek. Hoewel het client server principe kan worden gebruikt door programmas binnen enkele computer is het belangrijker binnen een netwerk.
+
+Http werkt volgens het client server model, een voorbeeld van een client is een browser bv chromen en een voorbeeld van een server kan apache zijn. 
+
+	//	de client heeft een sevice nodig 	<=>	de server biedt de service aan 
+	//	de client draait client programma	<=>	de server draait server programma
+	//	de client deelt geen resources		<=>	de server deelt resources met client
+	//	de client begint communicatie		<=>	de server wacht op vraag 
+	//	de client vraagt met een request 	<=> 	de server antwoord met een response
+
+
+	- 1.2 :: Http -Get
+
+Http staat voor hyper text transfer protocol en dat protocol dat communicatie over het world wide web stuurt beschrijft hoe boedschappen gevormd en overgebracht moeten worden en hoe browsers en web servers hiermee moeten omgaan, er zijn verschillende soorten boodschappen, bv get en post.
+
+Als een link word ingedrukt op een site of je tikt een url in de browser in dan word er een get request verstuurd.
+
+Samengevat stuurt de browser een get request naar de http server die dan gaat antwoorden met een response waarin de html zich bevind en die word dan gedraaid op de computer.
+
+Get heeft als doet data ophalen en heeft geen side efects maar moet altijd een link bevatten, in een get request zit een request lijn met url en headers met extra informatie, in de response zit een response lijn met status code en ook headers met extra info, en een body met bv html.
+
+	
+
+	- 1.3 :: Foutopsporing
+
+Als er iets mig gaat in je response dan ga je natuurlijk daar ook een error status van meekrijgen en deze word gegeven via codes er zijn dan ook 5 verschillende codes.
+	1)	als een code begint met het nummer 1 dan is het een informationale code en dan is het request ontvangen en gaat het process door
+	2) 	als een code begint met het nummer 2 dan is het een succes code en dan is de request ontvangen begrepen en geaccepteerd en succesvol verwerkt
+	3)	als een code begint met het nummer 3 dan is het een redirection code en dan moet de client bijkomende acties ondernemen om het request af te werken
+	4) 	als een code begint met het nummer 4 dan is het een client error code en dan is er een foutmelding die door de client veroorzaakt is door bijvoorbeeld het verkeerd typen van een url
+	5) 	als een code begint met het nummer 5 dan is het een server error code en dan is er een fout opgetreden aan de kant van de server
+
+
+
+	- 1.4 :: Build en deploy 
+
+Een dynamische webapplicaite waarin java is geschreven kan niet zomaar getoond worden in een browser, de java code moet nog verwerkt worden en daarom word een tomcat server gebruikt.

@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WEB 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+__________________________________________________________________________________________________________________
+
+--4 :: hoodstuk 4 === MVC
+
+	- 4.1 :: MVC
+
+Een belangrijk punt in programmeren is dat je geen dubble code schrijft, dus inplaats van code te copieren roep je beter de functie op, en dus inplaats van het spel in de servlet te maken roep je gewoon je spel klasse op in de servlet.
+
+Mode vliew controller is de uitgeschreven versie van MVC en de mvc scheidt de logica van de user interface en laat zo toe om alles onafhankelijk van elkaar te ontwikkelen testen en onderhouden:
+
+	model		:	alle data, toestand en businesslogica bv GuessGame.java
+	View		:	visuele representatie van model bv result.jsp
+	Controller	:	reageert op de input van de gebruikers en stuurt de communicatie tussen view en 	model zoals bv GuessServelt.java
+	
+Een voordeel hiervan is dat de logica van deze app kan gebruikt worden dan bij de een dekstop applicatiez en een web applicatie en een mobiele applicatie.
+
+	- 4.2 :: POST 
+
+Serverside is dit aan het gebeuren:
+
+	1)	gebruiker klikt op de knop
+	2)	een http request word aangemaakt met voor elk input element een parameter
+	3)	de request wordt naar de server gestuurd
+	4)	de parameters uit de request kunnen in de java code gelezen worden
+
+Indien get als methode word gekozen voor het http request dan word er een get request gestuurd en zullen de parameters meegegeven worden als querysytring in de url.
+Een alternatief request is via POST en hierbij worden de parameters meegegeven in request body.
+
+De verschillende doelen van get en post zijn.
+
+	GET	:	-	geen side-efect
+			-	voor navigatie, ophalen van gegevesn
+			- 	één of 100 keer sturen maakt niet uit
+
+	POST	:	-	wel side-efect
+			-	voor toevoegen, wijzigen,verwijderen
+
+
+bv een post request naar de zelfde pagina zou dit doen:
+
+	<form method="POST" action="#">
+	1)	courseform staat open 
+	2)	gebruiker klikt op de knop
+	3)	de webcontainer delegeert naar coursform.jsp
+	4)	courseform.jsp genereert de response
+
+bv een post request naar result.jsp:
+
+	<form method="POST" action="result.jsp">
+	1)	courseform staat open 
+	2)	gebruiker klikt op de knop
+	3)	de webcontainer delegeert naar result.jsp
+	4)	result.jsp genereert de response
+
+bv een post request naar "Course"
+
+	<form method="POST" action="Course">
+	1)	courseform staat open 
+	2)	gebruiker klikt op de knop
+	3)	de webcontainer delegeert naar CourseServlet.java
+	4)	CourseServlet.java forward naar reslult.jsp
+	5)	result.jsp
+
+	- 4.3 :: web.xml
+
+De web.xml word gebruikt om de start van de web applicatie aan te geven.
+
+ 

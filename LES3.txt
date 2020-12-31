@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WEB 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+__________________________________________________________________________________________________________________
+
+--3 :: hoodstuk 3 === GET met parameters
+
+	- 3.1 :: GET + Parameters
+
+Als we een website zouden maken die een nummer rader spel nabootst dan word het getal meegegeven met de Client en het getal word gecontroleerd door de Server en een antwoord word ook door de server gegenereerd en een antwoord word getoond door de client.
+
+	1)	Getal meegeven kan op twee manieren
+			- via een GET request waarbij de parameters in de url word meegegeven 
+			- via een POST request waarbij dat de parameters in de body van het request word meegegeven
+
+Parameters worden meegegeven met get via een url + een vraagteken en dan een querystring bv 
+	http://<host>/<path>?<querystring>
+		- protocol		:	http://
+		- host			:	localhost:8080
+		- path			:	/GuessGame/guess.jsp
+		- querystring		:	guess=4
+
+
+	2)	Getal controleren
+Om te beginnen moet het getal uit de url worden gehaald en dat gaat via request.getParameter("de naam") en deze methode geeft altijd een string terug.
+
+	3)	Antwoord generen
+Als je een <%! %> gebruikt dan maak je eigenlijk een instantie variabele, meestal worden <%= %> gebruikt in html want dat word direct in de html gezet
+
+	4)	Antwoord tonen
+Dit word getoond met een HTTP Response.
+
+	- 3.2 :: JSP vs Servlet
+
+Het doel uiteindelijk is om zo weining mogelijk java in html te gebruiken als mogelijk en dus zo veel mogelijk laten door te komen via een Servlet.
+
+bv:
+
+	1)	Gebruiker geeft de url met parameter mee in de adresbalk
+	2)	De webcontainer maakt een requestobject en geeft dit door aan GuessServlet
+	3)	GuessServlet.java controleert het getal en voegt het resultaat toe aan de request en forward de request naar result.jsp
+	4)	Result.jsp genereert de response
+
+Dus de beste oplossing is alle bestanden zijn herbruikbaar en de servlet bevat geen html en de jsps bevatten een minimum aan Java code, de url bevat ook niet meer guess.jsp maar de url die we in de @webservlet annotatie in guessservlet hadden gezet, dus Guess.
+

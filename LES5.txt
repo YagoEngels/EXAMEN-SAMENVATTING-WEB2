@@ -1,0 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WEB 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+__________________________________________________________________________________________________________________
+
+--5 :: hoodstuk 5 === Front controller
+
+	- 5.1 :: Front Controller
+
+Momenteel heeft de controller en dus de servlet alleen nog maar een do post en een doget waardoor alleen een add en overview functie kan gemaakt worden, natuurlijk willen we meerdere functies.
+De oplossing hiervoor is 1 servlet en parameters meegeven voor de waarde bv Controller?command=add en dat wordt dan gerunt door een Front Controller met een Single point of entry en handles alle request en delegate de business processing en navigatie.

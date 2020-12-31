@@ -1,0 +1,13 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WEB 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+__________________________________________________________________________________________________________________
+
+
+--9 :: hoodstuk 9 === Sessions
+
+	- 9.1 :: Sessions
+
+Cookies zijn opgeslagen op de client waarin dat sessions opgeslagen zijn op de server, waarin dat de server een token stuurt naar de client via een id, de client saves de id.
+De session is gemaakt door een script op de server en is opgeslagen op de server en de id is opgeslagen door de client in de browser.
+
+Het gebeurt doordat de server een session-object aanmaakt en zet dan informatie in de session en geeft de id van de session aan de client via een response header, de browser stuurt de id in elke request header, de server gebruikt de id om de corresponding session te vinden , en de server geeft dan de informatie van de session
+

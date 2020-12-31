@@ -1,0 +1,19 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WEB 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+__________________________________________________________________________________________________________________
+
+
+--7 :: hoodstuk 7 === Validation
+
+	- 7.1 :: Test driven development
+
+Test driven development is dat je eerst een test maakt en dan de code schrijft om door die test te komen, en als je bent geslaagd daarin kan de code mooi gemaakt worden.
+
+	- 7.2 :: Validation
+
+Dit word gedaan door bij het model exceptions te plaatsen en in de controller word dan alle exceptions gecatched en die geven dan alle error information door aan de view, en de view toont dan de error informatie.
+
+	- 7.3 :: Client-side vs Server-side Validation
+
+		- Client-side validatie is validatie in de browser, en gebeurt na de gebruiker op de submit heeft gedrukt maar voor dat de browser een request stuurt naa de server.
+
+		- Server-sid validation, is de validatie door de server, de browser heeft dan al een request gestuurd naar de server en de ontwikkelaar codeert deze validatie dan in java.

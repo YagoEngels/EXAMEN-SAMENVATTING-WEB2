@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WEB 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+__________________________________________________________________________________________________________________
+
+
+--6 :: hoodstuk 6 === Front controller
+
+	- 6.1 :: Expression language 
+
+Goede designers zijn niet altijd goede programmeurs en daarom worden JSP scriplets en expressions verplaatst door de expression language , deze kunnen opgeroepen worden door een ${parameter.naam}
+
+bv 
+	<%= request.getparameter("naam")%> word dan*{param.naam}
+
+	- 6.2 :: JSP actions 
+
+Jsp actions zijn tags die je naast gewone normale html tags kan gebruiken, en dei geven meer functionaliteiten zonder te veel java te gebruiken.
+
+Standaard actions zijn :
+	
+	-	<jp:include>
+	-	<jsp:param>
+	-	<jsp:plugin>
+
+
+Custom actions zijn via jstl en dat staat voor jsp standard tag library bv :
+
+		- Choice if ( <c:if>)
+
+
